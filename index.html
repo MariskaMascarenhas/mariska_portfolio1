@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mariska Mascarenhas | Portfolio</title>
+  <meta name="description" content="Portfolio of Mariska Mascarenhas - AI/ML enthusiast, Python developer, and data science learner. Showcasing projects, skills, and contact details." />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background-color: #000; color: #fff; position: relative; }
+    a, a:hover, a:focus { text-decoration: none; }
+
+    /* Navbar */
+    .navbar .nav-link.active { color: #1E90FF !important; font-weight: bold; }
+    .navbar .nav-link:hover { color: #1E90FF !important; }
+
+    /* About Section */
+    .about-section { 
+      text-align: center; 
+      padding: 80px 20px; 
+      background-color: #000; /* solid black background */
+    }
+
+    .about-section h2 { 
+      font-size: 2.5rem; 
+      margin-bottom: 30px; 
+      color: #fff; /* About heading white */
+    }
+
+    .about-section .about-text { 
+      max-width: 700px; 
+      margin: 0 auto; 
+      font-size: 1.1rem; 
+      line-height: 1.7; 
+      color: #fff; /* text white */
+    }
+
+    .about-section .about-text p { 
+      margin-bottom: 15px; 
+    }
+
+    .about-section .about-text strong { 
+      color: #fff; /* strong text white */
+    }
+
+    .about-section .tagline {
+      font-style: italic;
+      color: #fff; /* tagline text white */
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+
+    .about-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 20px;
+    }
+
+    /* Project Cards */
+    .project-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: #111; color: #fff;
+    }
+    .project-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(30,144,255,0.2);
+      cursor: pointer;
+    }
+
+    /* Skills Cards */
+    .skills-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      background-color: #111; color: #fff;
+    }
+    .skills-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(30,144,255,0.4);
+      background-color: #0d1a2b;
+      border: 1px solid #1E90FF;
+    }
+
+    /* Contact */
+    .contact-info span { transition: color 0.3s ease; }
+    .contact-info span:hover { color: #1E90FF; cursor: pointer; }
+
+    /* Footer social links */
+    .footer-social { display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
+    .footer-social a { color: #fff; font-weight: bold; display: flex; align-items: center; gap: 8px; font-size: 1rem; text-decoration: none; transition: color 0.3s ease; }
+    .footer-social a img { width: 25px; height: 25px; }
+    .footer-social a:hover { color: #1E90FF; }
+
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="70" tabindex="0">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home">Mariska Mascarenhas</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home">
+
+    <!-- About -->
+    <section id="about" class="about-section">
+      <img src="images/about/N.jpg" alt="AI Icon" class="about-icon">
+      <h2>About Me</h2>
+      <div class="about-text">
+        <p>I’m <strong>Mariska Mascarenhas</strong>, a Computer Science graduate with a focus on <strong>Artificial Intelligence and Machine Learning</strong>. I enjoy turning complex problems into practical solutions using data, automation, and Python-based tools.</p>
+        <p>Currently, I’m building hands-on projects to strengthen my skills in data analysis, SQL, and AI applications, and I’m eager to contribute to initiatives that have a real-world impact. I’m driven by learning continuously and creating technology that matters.</p>
+        <div class="tagline">“Turning data into actionable insights.”</div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section py-5 text-center">
+      <div class="container">
+        <h2 class="mb-5">Projects</h2>
+        <div class="row justify-content-center g-4">
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm project-card">
+              <img src="images/projects/medical_recommender.jpg" class="card-img-top" alt="Medical Recommender System Screenshot">
+              <div class="card-body">
+                <h5 class="card-title">Medical Recommender System</h5>
+                <p class="card-text">This project is a medical diagnosis prediction system that predicts possible diseases based on patient-reported symptoms. The web interface is built with Flask and the backend logic leverages Python, Pandas, and machine learning models.</p>
+                <p>
+                  <span class="badge bg-secondary">Python</span>
+                  <span class="badge bg-secondary">Machine Learning</span>
+                  <span class="badge bg-secondary">Data Analysis</span>
+                </p>
+                <p>
+                  <a href="blogs/medical_recommender.html" target="_blank" class="fw-bold" style="color:#1E90FF;">Blog Post</a> |
+                  <a href="https://drive.google.com/drive/folders/1i5-CyER_B5JmXoZJn-NvdqPNEB3zaL_d?usp=sharing" target="_blank" class="fw-bold" style="color:#1E90FF;">Source Code</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm project-card">
+              <img src="images/projects/book_recommender.jpg" class="card-img-top" alt="Book Recommender System Screenshot">
+              <div class="card-body">
+                <h5 class="card-title">Book Recommender System</h5>
+                <p class="card-text">This project creates a content-based book recommendation engine that suggests similar books to readers based on their input. The focus was on Flask for the web interface and Python for backend logic.</p>
+                <p>
+                  <span class="badge bg-secondary">Python</span>
+                  <span class="badge bg-secondary">NLP</span>
+                  <span class="badge bg-secondary">Recommendation System</span>
+                </p>
+                <p>
+                  <a href="blogs/book_recommender.html" target="_blank" class="fw-bold" style="color:#1E90FF;">Blog Post</a> |
+                  <a href="https://drive.google.com/drive/folders/1lqvsPcHq61Kt7ez26tvhc0OhmtvVyDKC?usp=sharing" target="_blank" class="fw-bold" style="color:#1E90FF;">Source Code</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm project-card">
+              <img src="images/projects/Rag_chatbot.jpg" class="card-img-top" alt="RAG Chatbot Screenshot">
+              <div class="card-body">
+                <h5 class="card-title">RAG Chatbot</h5>
+                <p class="card-text">A smart chatbot that can quickly answer questions from your data, whether it’s numbers or text, by finding the right information and giving clear, concise answers through a simple web interface.</p>
+                <p>
+                  <span class="badge bg-secondary">Python</span>
+                  <span class="badge bg-secondary">SentenceTransformer</span>
+                  <span class="badge bg-secondary">FAISS</span>
+                  <span class="badge bg-secondary">OpenRouter api</span>
+                  <span class="badge bg-secondary">NLP</span>
+                </p>
+                <p>
+                  <a href="blogs/rag_chatbot.html" target="_blank" class="fw-bold" style="color:#1E90FF;">Blog Post</a> |
+                  <a href="https://drive.google.com/drive/folders/1vC159KHIj3TJJoDheetYdsGTE5hxQUox?usp=sharing" target="_blank" class="fw-bold" style="color:#1E90FF;">Source Code</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section py-5 text-center">
+      <div class="container">
+        <h2 class="mb-5">Skills</h2>
+        <div class="row justify-content-center g-4">
+
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 border-0 skills-card">
+              <img src="images/skills/python.jpg" class="card-img-top mx-auto" alt="Python Logo" style="width: 80px; height: 80px; margin-top: 20px;">
+              <div class="card-body">
+                <h5 class="card-title">Python</h5>
+                <p class="card-text">Proficient in Python for data manipulation, automation, and building scalable scripts for analysis and AI/ML workflows.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 border-0 skills-card">
+              <img src="images/skills/sql.jpg" class="card-img-top mx-auto" alt="SQL Logo" style="width: 80px; height: 80px; margin-top: 20px;">
+              <div class="card-body">
+                <h5 class="card-title">SQL</h5>
+                <p class="card-text">Skilled in designing databases, writing efficient queries, joining datasets, and analyzing real-world structured data.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 border-0 skills-card">
+              <img src="images/skills/datav.jpg" class="card-img-top mx-auto" alt="Data Visualization Icon" style="width: 80px; height: 80px; margin-top: 20px;">
+              <div class="card-body">
+                <h5 class="card-title">Data Visualization</h5>
+                <p class="card-text">Experienced in creating insightful visualizations and interactive dashboards using Matplotlib, Tableau, and Excel to communicate data-driven insights.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 border-0 skills-card">
+              <img src="images/skills/aiml.jpg" class="card-img-top mx-auto" alt="AI/ML Icon" style="width: 80px; height: 80px; margin-top: 20px;">
+              <div class="card-body">
+                <h5 class="card-title">AI/ML Fundamentals</h5>
+                <p class="card-text">Hands-on experience with machine learning concepts, including model building, evaluation, and experimentation on datasets to solve real-world problems.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5 text-center text-white">
+      <div class="container">
+        <h2 class="mb-4">Contact Me</h2>
+        <div class="row justify-content-center mb-4 contact-info">
+          <div class="col-md-6 col-lg-3 d-flex align-items-center justify-content-center mb-3 mb-md-0">
+            <img src="https://img.icons8.com/ios-filled/30/ffffff/new-post.png" alt="Email Icon" class="me-2" />
+            <span>mariskamascarenhas@gmail.com</span>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex align-items-center justify-content-center">
+            <img src="https://img.icons8.com/ios-filled/30/ffffff/phone.png" alt="Phone Icon" class="me-2" />
+            <span>8879200350</span>
+          </div>
+        </div>
+
+        <form action="https://formspree.io/f/mvgblqbz" method="POST" class="mt-4">
+          <div class="row justify-content-center g-3">
+            <div class="col-md-4">
+              <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="col-md-4">
+              <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="col-md-8">
+              <textarea name="message" class="form-control" placeholder="Your Message" rows="4" required></textarea>
+            </div>
+            <div class="col-md-8">
+              <button type="submit" class="btn btn-lg w-100" style="background-color: #1E90FF; color: #fff;">Send Message</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="footer-social">
+          <a href="https://github.com/MariskaMascarenhas" target="_blank">
+            <img src="icons/github.png" alt="GitHub"> GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/mariska-mascarenhas-57b72a249/" target="_blank">
+            <img src="icons/linkedin.png" alt="LinkedIn"> LinkedIn
+          </a>
+          <a href="./resume/Mariska_resume.pdf" target="_blank">
+            <img src="icons/resume.png" alt="Resume"> Resume
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </section>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2025 Mariska Mascarenhas. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

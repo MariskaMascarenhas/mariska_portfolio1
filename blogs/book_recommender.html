@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book Recommender – Blog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+    a {
+      color: #1E90FF;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #0d6efd;
+      text-decoration: none;
+    }
+    .navbar {
+      background-color: #111 !important;
+    }
+    hr {
+      border-color: #444;
+    }
+    h1, h2 {
+      color: #fff;
+    }
+    pre {
+      background-color: #111;
+      color: #fff;
+    }
+    .text-muted {
+      color: #aaa !important;
+    }
+    .btn-outline-primary {
+      color: #1E90FF;
+      border-color: #1E90FF;
+    }
+    .btn-outline-primary:hover {
+      background-color: #1E90FF;
+      color: #fff;
+      border-color: #1E90FF;
+    }
+
+    /* Subtle neon hover effect on images */
+    .blog-img {
+      transition: box-shadow 0.3s ease;
+      border-radius: 10px;
+      display: block;
+      width: 100%;
+    }
+    .blog-img:hover {
+      box-shadow:
+        0 0 5px #1E90FF,
+        0 0 10px #1E90FF,
+        0 0 15px #1E90FF; /* Subtle neon glow */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="../index.html">← Back to Portfolio</a>
+    </div>
+  </nav>
+
+  <!-- Blog Content -->
+  <div class="container my-5">
+    <h1 class="fw-bold mb-3">Building a Personalized Book Recommender System</h1>
+    <p class="text-muted">Published on 25-08-2025</p>
+    <hr class="mb-4">
+
+    <!-- Intro -->
+    <section class="mb-5">
+      <h2>📚 Overview</h2>
+      <p>
+        This project creates a <strong>content-based book recommendation engine</strong>
+        that suggests similar books to readers based on their input.  
+        The focus was on <strong>Flask</strong> for the web interface and <strong>Python</strong> for backend logic.
+      </p>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="mb-5">
+      <h2>⚙️ Tech Stack</h2>
+      <ul>
+        <li>Python, Pandas, NumPy for data preprocessing</li>
+        <li>Pickle for saving precomputed similarity matrices</li>
+        <li>Flask for serving the web app</li>
+        <li>Bootstrap for front-end styling</li>
+      </ul>
+    </section>
+
+    <!-- Implementation Steps -->
+    <section class="mb-5">
+      <h2>🛠️ Implementation Steps</h2>
+      <ol>
+        <li>Prepared datasets with book titles, authors, images, and ratings</li>
+        <li>Computed similarity using vectorized representations of books</li>
+        <li>Stored processed data in <code>popular.pkl</code>, <code>pt.pkl</code>, <code>books.pkl</code>, and <code>similarity_scores.pkl</code></li>
+        <li>Created two Flask routes:
+          <ul>
+            <li><code>/</code> → shows popular books</li>
+            <li><code>/recommend</code> → search UI for user input</li>
+          </ul>
+        </li>
+        <li>On submit, the system fetches top 4 similar books and displays titles, authors, and cover images.</li>
+      </ol>
+    </section>
+
+    <!-- Screenshot -->
+    <section class="mb-5">
+      <h2>📸 UI Preview</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <img src="../images/blog_img/BR1.png" alt="Book Recommender UI 1" class="blog-img">
+          <p class="text-muted mt-2 text-center">Homepage & Search Page</p>
+        </div>
+        <div class="col-md-6">
+          <img src="../images/blog_img/BR2.png" alt="Book Recommender UI 2" class="blog-img">
+          <p class="text-muted mt-2 text-center">Recommendation Results Page</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Code Snippet -->
+    <section class="mb-5">
+      <h2>📜 Key Code Snippet</h2>
+      <pre class="bg-dark text-light p-3 rounded">
+@app.route('/recommend_books', methods=['POST'])
+def recommend():
+    user_input = request.form.get('user_input').strip().lower()
+
+    index_array = np.where(pt.index.str.lower() == user_input)[0]
+    if len(index_array) == 0:
+        return render_template('recommend.html', data=[], error="⚠️ Book not found!")
+
+    index = index_array[0]
+    similar_items = sorted(list(enumerate(similarity_scores[index])),
+                            key=lambda x: x[1], reverse=True)[1:5]
+
+    data = []
+    for i in similar_items:
+        temp_df = books[books['Book-Title'].str.lower() == pt.index[i[0]].lower()]
+        if not temp_df.empty:
+            data.append([temp_df['Book-Title'].values[0],
+                         temp_df['Book-Author'].values[0],
+                         temp_df['Image-URL-M'].values[0]])
+
+    return render_template('recommend.html', data=data)
+      </pre>
+      <p class="text-muted">This route processes user input and displays the recommended books.</p>
+    </section>
+
+    <!-- Lessons -->
+    <section class="mb-5">
+      <h2>💡 Lessons Learned</h2>
+      <ul>
+        <li>Case-insensitive handling prevents mismatches with user input</li>
+        <li>Pickling preprocessed data speeds up the recommendation response</li>
+        <li>Bootstrap makes quick UI design possible without deep CSS knowledge</li>
+      </ul>
+    </section>
+
+    <!-- Conclusion -->
+    <section>
+      <h2>🚀 Conclusion</h2>
+      <p>
+        This Book Recommender is a lightweight Flask application that shows how
+        similarity-based approaches can deliver personalized book suggestions.
+        Future improvements could include collaborative filtering and hybrid
+        recommendations using user ratings.
+      </p>
+    </section>
+
+    <hr class="mt-5">
+    <a href="../index.html" class="btn btn-outline-primary">← Back to Portfolio</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
