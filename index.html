@@ -72,6 +72,14 @@
       cursor: pointer;
     }
 
+    /* Project Title Hover Effect */
+    .card-title {
+      transition: color 0.3s ease;
+    }
+    .card-title:hover {
+      color: #a020f0; /* Purple */
+    }
+
     /* Skills Cards */
     .skills-card {
       transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
@@ -93,6 +101,11 @@
     .footer-social a { color: #fff; font-weight: bold; display: flex; align-items: center; gap: 8px; font-size: 1rem; text-decoration: none; transition: color 0.3s ease; }
     .footer-social a img { width: 25px; height: 25px; }
     .footer-social a:hover { color: #1E90FF; }
+
+    /* Resume hover */
+    .resume-link:hover {
+      color: #0d6efd !important;
+    }
 
   </style>
 </head>
@@ -128,7 +141,6 @@
         <p>I have built hands-on projects to strengthen my expertise in AI applications, SQL, and data-driven solutions, and I am eager to contribute to initiatives that create real-world impact. I am passionate about continuous learning and developing technology that delivers meaningful outcomes.</p>
         <div class="tagline">“Turning data into actionable insights.”</div>
       </div>
-
     </section>
 
     <!-- Projects Section -->
@@ -267,14 +279,7 @@
             <img src="https://img.icons8.com/ios-filled/30/ffffff/resume.png" alt="Resume Icon" class="me-2" style="width:30px;height:30px;">
             <a href="./resume/Mariska_resume.pdf" download class="fw-bold fs-4 text-white text-decoration-none resume-link">Resume</a>
           </div>
-
-          <style>
-            .resume-link:hover {
-            color: #0d6efd !important; /* Bootstrap primary blue */
-          }
-          </style>
-
-
+        </div>
 
         <form action="https://formspree.io/f/mvgblqbz" method="POST" class="mt-4">
           <div class="row justify-content-center g-3">
